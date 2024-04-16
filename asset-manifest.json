@@ -1,15 +1,15 @@
 {
   "files": {
-    "main.css": "/n-simpkin/Picross-website.git/static/css/main.47839ecd.css",
-    "main.js": "/n-simpkin/Picross-website.git/static/js/main.97020f78.js",
-    "static/js/787.75929b9f.chunk.js": "/n-simpkin/Picross-website.git/static/js/787.75929b9f.chunk.js",
-    "index.html": "/n-simpkin/Picross-website.git/index.html",
-    "main.47839ecd.css.map": "/n-simpkin/Picross-website.git/static/css/main.47839ecd.css.map",
-    "main.97020f78.js.map": "/n-simpkin/Picross-website.git/static/js/main.97020f78.js.map",
-    "787.75929b9f.chunk.js.map": "/n-simpkin/Picross-website.git/static/js/787.75929b9f.chunk.js.map"
+    "main.css": "/static/css/main.47839ecd.css",
+    "main.js": "/static/js/main.ee477282.js",
+    "static/js/787.75929b9f.chunk.js": "/static/js/787.75929b9f.chunk.js",
+    "index.html": "/index.html",
+    "main.47839ecd.css.map": "/static/css/main.47839ecd.css.map",
+    "main.ee477282.js.map": "/static/js/main.ee477282.js.map",
+    "787.75929b9f.chunk.js.map": "/static/js/787.75929b9f.chunk.js.map"
   },
   "entrypoints": [
     "static/css/main.47839ecd.css",
-    "static/js/main.97020f78.js"
+    "static/js/main.ee477282.js"
   ]
 }

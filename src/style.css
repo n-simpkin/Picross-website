@@ -1,0 +1,179 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Roboto", "Oxygen", "Ubuntu", "Cantarell", "Fira Sans", "Droid Sans", "Helvetica Neue", sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, "Courier New", monospace;
+}
+
+.emptySquare {
+  background-color: white;
+  border: 2px solid #8bbee3;
+  height: var(--square-size);
+  width: var(--square-size);
+}
+
+.filledSquare {
+  background-color: #171717;
+  border: 2px solid #8bbee3;
+  height: var(--square-size);
+  width: var(--square-size);
+}
+
+.incorrectSquare {
+  background-color: white;
+  color: #8bbee3;
+  text-align: center;
+  vertical-align: middle;
+  font-size: 60px;
+  padding-bottom: 12px;
+  padding-left: 6px;
+  line-height: 0%;
+  border: 2px solid #8bbee3;
+  height: var(--square-size);
+  width: var(--square-size);
+}
+
+.topClueBox {
+  height: auto;
+  width: var(--square-size);
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  text-align: center;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.sideClueBox {
+  height: var(--square-size);
+  width: var(--side-clue-box-width);
+  align-items: center;
+  justify-content: center;
+  display: inline-flex;
+  text-align: center;
+  padding: 2px;
+  box-sizing: border-box;
+}
+
+.spacerBox {
+  height: var(--square-size);
+  width: var(--square-size);
+  display: inline-flex;
+}
+
+.cornerSpacerBox {
+  height: var(--square-size);
+  width: var(--side-clue-box-width);
+  display: inline-flex;
+}
+
+.board-squares {
+  margin: 80px auto 0px auto;
+  width: -moz-fit-content;
+  width: fit-content;
+}
+
+.row {
+  display: flex;
+  margin-bottom: -3px;
+}
+
+.solvedStateHeader {
+  text-align: center;
+  vertical-align: top;
+  font-size: 50px;
+  color: white;
+  margin-top: -76px;
+  margin-bottom: -66.67px;
+}
+
+.sizeButtonHolder {
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.sizeButton {
+  background-color: white;
+  border: 8px solid #8bbee3;
+  padding: 20px;
+  margin: 0.2em;
+  font-size: 2em;
+  text-decoration: none;
+  color: black;
+}
+
+.prePuzzleHeader {
+  text-align: center;
+  margin-top: 180px;
+}
+
+.createCustomFieldset {
+  border: none;
+}
+
+.customSizeForm {
+  text-align: center;
+}
+
+.createCustomInput {
+  border: 2px solid #8bbee3;
+  width: 80px;
+  height: 20px;
+}
+
+.centreForm {
+  position: absolute;
+  left: 50%;
+  margin-top: 20px;
+  margin-right: -50%;
+  transform: translate(-50%, -50%);
+}
+
+.header {
+  background-color: #8bbee3;
+  height: 80px;
+}
+.header .headerLinkDiv {
+  height: 80px;
+  width: 120px;
+  text-align: center;
+  line-height: 80px;
+}
+.header .headerLinkDiv:hover {
+  background-color: #6fa7cf;
+}
+.header .headerLink {
+  text-decoration: none;
+  color: white;
+  margin: 0px;
+}
+
+.submitCustomPuzzleSizeButton {
+  background-color: white;
+  border: 2px solid #8bbee3;
+  font-size: 13px;
+}
+
+.newPuzzleButtonPositionDiv {
+  width: -moz-fit-content;
+  width: fit-content;
+  display: flex;
+  align-items: flex-end;
+  margin-top: -30px;
+  margin-left: calc(50vw + var(--square-size) * var(--grid-size) / 2 + 5px);
+}
+
+.newPuzzleButton {
+  background-color: white;
+  color: 171717;
+  border: 2px solid #8bbee3;
+  padding: 4px;
+  font-size: 13px;
+}/*# sourceMappingURL=style.css.map */

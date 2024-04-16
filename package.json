@@ -2,7 +2,7 @@
   "name": "picross2",
   "version": "0.1.0",
   "private": true,
-  "homepage": "https://github.com/n-simpkin/Picross-website.git",
+  "homepage": "https://github.com/n-simpkin/Picross-website.git/.",
   "devDependencies": {
     "@babel/plugin-proposal-private-property-in-object": "^7.21.0",
     "gh-pages": "^6.1.1"

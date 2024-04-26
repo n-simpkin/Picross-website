@@ -5,7 +5,7 @@ import { Link } from 'react-router-dom';
 
 function Square({ userValue, onSquareClick }) {
 
-    if (userValue == "incorrectSquare") {
+    if (userValue === "incorrectSquare") {
         return <button className={userValue} onClick={onSquareClick} >x</button>;
     } else {
         return <button className={userValue} onClick={onSquareClick} ></button>;
@@ -48,16 +48,17 @@ function NewPuzzleButton({ onNewPuzzleButtonClick }) {
     return <button className="newPuzzleButton" onClick={onNewPuzzleButtonClick}>New Puzzle</button>
 }
 
-function Board({ ans, gridSize, rowClues, colClues, updateCorectness, userInputted, setUserInputted }) {
+function Board({ ans, gridSize, rowClues, colClues, updateCorrectness, userInputted, setUserInputted }) {
 
     function handleClick(squareRow, squareCol) {
         var userInputtedUpdated = userInputted.slice(); //note to self -creating a copycat array bc immutability so not all child components automatically re-render, bc not all need to. (https://react.dev/learn/tutorial-tic-tac-toe search immutability)
         if (ans[squareRow][squareCol] === 1) { //is this square correct or not
             userInputtedUpdated[squareRow][squareCol] = "filledSquare"
-            updateCorectness(true);
+            console.log("correct click");
+            updateCorrectness(true);
         } else {
             userInputtedUpdated[squareRow][squareCol] = "incorrectSquare"
-            updateCorectness(false);
+            console.log("incorrect click");
         }
         setUserInputted(userInputtedUpdated);
     };
@@ -73,22 +74,23 @@ function Board({ ans, gridSize, rowClues, colClues, updateCorectness, userInputt
 
 function BoardAndSolvedState({ ans, gridSize, rowClues, colClues, userInputted, setUserInputted, solvedState, setSolvedState, numCorrect, setNumCorrect }) {
 
-    function updateCorectness(correctOrNot) {
+    function updateCorrectness(correctOrNot) {
         if (correctOrNot === true) {
             setNumCorrect(numCorrect + 1)
-            console.log("numcorrect =", (numCorrect + 1)) // +1 because of the delay between the effect of set state and the javascript. With the +1 this will follow the actual value of num correct.
-        }
-        let ansFlat = ans.join()
-        if ((numCorrect + 1) === (ansFlat.match(/1/g) || []).length) {
-            console.log("solved!")
-            setSolvedState("Solved!")
+            console.log("numcorrect =", (numCorrect + 1)) // +1 because of the delay between the effect of set state and the javascript. With the +1 this will follow the actual value of num correct. Should I be using useRef? I don't really understand useRef.
+
+            let ansFlat = ans.join()
+            if ((numCorrect + 1) === (ansFlat.match(/1/g) || []).length) {
+                console.log("solved!")
+                setSolvedState("Solved!")
+            }
         }
     }
 
     return (
         <>
             <SolvedState solvedState={solvedState} />
-            <Board ans={ans} gridSize={gridSize} rowClues={rowClues} colClues={colClues} updateCorectness={updateCorectness} userInputted={userInputted} setUserInputted={setUserInputted} />
+            <Board ans={ans} gridSize={gridSize} rowClues={rowClues} colClues={colClues} updateCorrectness={updateCorrectness} userInputted={userInputted} setUserInputted={setUserInputted} />
         </>
     )
 }
@@ -126,7 +128,7 @@ function Game({ gridSizePassed }) {
         //reset ans
         var updatedAns = generateAns(gridSize); //React will ignore your update if the next state is equal to the previous state - must create new variable rather than muting ans.
         setAns(updatedAns);
-        console.log("ans", updatedAns);
+        // console.log("ans", updatedAns);
 
         //reset clues
         clues = calculateClues(updatedAns, gridSize);
@@ -139,6 +141,7 @@ function Game({ gridSizePassed }) {
 
         //reset squares registered as correct
         setNumCorrect(0)
+        console.log("numcorrect set to 0")
 
         //remove header
         setSolvedState("")
@@ -161,7 +164,7 @@ export default function Page() {
     var gridSizePassed = location.state; //set passed value from home page
 
     var gridSizePreProcess = null;
-    var gridSizePreProcess = gridSizePassed;
+    gridSizePreProcess = gridSizePassed;
 
     //if passed as object from custom
     if (typeof (gridSizePreProcess) === 'object') {

@@ -54,11 +54,11 @@ function Board({ ans, gridSize, rowClues, colClues, updateCorrectness, userInput
         var userInputtedUpdated = userInputted.slice(); //note to self -creating a copycat array bc immutability so not all child components automatically re-render, bc not all need to. (https://react.dev/learn/tutorial-tic-tac-toe search immutability)
         if (ans[squareRow][squareCol] === 1) { //is this square correct or not
             userInputtedUpdated[squareRow][squareCol] = "filledSquare"
-            console.log("correct click");
+            // console.log("correct click");
             updateCorrectness(true);
         } else {
             userInputtedUpdated[squareRow][squareCol] = "incorrectSquare"
-            console.log("incorrect click");
+            // console.log("incorrect click");
         }
         setUserInputted(userInputtedUpdated);
     };
@@ -77,11 +77,11 @@ function BoardAndSolvedState({ ans, gridSize, rowClues, colClues, userInputted, 
     function updateCorrectness(correctOrNot) {
         if (correctOrNot === true) {
             setNumCorrect(numCorrect + 1)
-            console.log("numcorrect =", (numCorrect + 1)) // +1 because of the delay between the effect of set state and the javascript. With the +1 this will follow the actual value of num correct. Should I be using useRef? I don't really understand useRef.
+            // console.log("numcorrect =", (numCorrect + 1)) // +1 because of the delay between the effect of set state and the javascript. With the +1 this will follow the actual value of num correct. Should I be using useRef? I don't really understand useRef.
 
             let ansFlat = ans.join()
             if ((numCorrect + 1) === (ansFlat.match(/1/g) || []).length) {
-                console.log("solved!")
+                // console.log("solved!")
                 setSolvedState("Solved!")
             }
         }
@@ -121,9 +121,8 @@ function Game({ gridSizePassed }) {
     const [solvedState, setSolvedState] = useState("");
     const [numCorrect, setNumCorrect] = useState(0);
 
-
     function resetGame() {
-        console.log("reset callled")
+        console.log("Game reset")
 
         //reset ans
         var updatedAns = generateAns(gridSize); //React will ignore your update if the next state is equal to the previous state - must create new variable rather than muting ans.
@@ -134,14 +133,14 @@ function Game({ gridSizePassed }) {
         clues = calculateClues(updatedAns, gridSize);
         setRowClues(clues[0]);
         setColClues(clues[1]);
-        console.log(rowClues);
+        // console.log(rowClues);
 
         //reset squares clicked
         setUserInputted(generateUserInputtedAllBlank());
 
         //reset squares registered as correct
         setNumCorrect(0)
-        console.log("numcorrect set to 0")
+        // console.log("numcorrect set to 0")
 
         //remove header
         setSolvedState("")
@@ -203,7 +202,7 @@ function generateAns(gridSize) {
             };
         };
     };
-    // console.log(ans)
+    // console.log("answer is", ans)
     return ans
 };
 
